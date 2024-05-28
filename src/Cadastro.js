@@ -64,8 +64,8 @@ function App() {
             width={200}
             src={'src/images/LOGOV2-2'} />
           </div>
-          <Title style={styles.title}>Login</Title>
-          <Text style={styles.text}>Bem-vindo de volta ao RoomHub. Insira seus detalhes abaixo para efetuar o login.
+          <Title style={styles.title}>Cadastro</Title>
+          <Text style={styles.text}>Efetue seu cadastro para comercializar salas e diversas outras atividades com RoomHub.
           </Text>
         </div>
         <Form
