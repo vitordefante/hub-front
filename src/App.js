@@ -1,18 +1,13 @@
 import React from 'react';
 import 'antd/dist/reset.css'; // Importa o CSS do Ant Design
-import { Button, Checkbox, Form, Grid, Input, theme, Typography, Image } from "antd";
+import { Button, Checkbox, Flex, Form, Grid, Input, theme, Typography} from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import logo from './images/LOGOV2-2.png';
 
 
 const { useToken } = theme;
 const { useBreakpoint } = Grid;
 const { Text, Title, Link } = Typography;
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
 
 function App() {
   const { token } = useToken();
@@ -56,14 +51,12 @@ function App() {
   };
 
   return (
-    <section style={styles.section}>
+    <div className='mainWrapper' style={{display:'flex'}}>
+      <div className='form' style={{width:'50%'}}>
+      <section style={styles.section}>
       <div style={styles.container}>
         <div style={styles.header}>
-        <div>
-          <Image
-            width={200}
-            src={'src/images/LOGOV2-2'} />
-          </div>
+          
           <Title style={styles.title}>Login</Title>
           <Text style={styles.text}>Bem-vindo de volta ao RoomHub. Insira seus detalhes abaixo para efetuar o login.
           </Text>
@@ -78,6 +71,7 @@ function App() {
           requiredMark="optional"
         >
           <Form.Item
+          style={{marginBottom: 20}}
             name="email"
             rules={[
               {
@@ -88,6 +82,7 @@ function App() {
             ]}
           >
             <Input
+              style={{height: 40}}
               prefix={<MailOutlined />}
               placeholder="Email"
             />
@@ -102,6 +97,7 @@ function App() {
             ]}
           >
             <Input.Password
+              style={{height: 40}}
               prefix={<LockOutlined />}
               type="password"
               placeholder="Senha"
@@ -118,7 +114,7 @@ function App() {
           <Form.Item style={{ marginBottom: "0px" }}>
             <Button block="true" style={{backgroundColor:'#730007', color:'white', border:'none'}} htmlType="submit">
               Log in
-            </Button>
+            </Button> 
             <div style={styles.footer}>
               <Text style={styles.text}>Não possui uma conta?</Text>{" "}
               <Link style={{color:'#730007'}} href="">Cadastre-se agora</Link>
@@ -127,6 +123,15 @@ function App() {
         </Form>
       </div>
     </section>
+        
+
+      </div>
+
+      <div className='logo' style={{backgroundColor:'#730007', width:'50%', display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <img style={{width:300, margin: 0}} src={logo}></img>
+      </div>
+
+    </div>
   );
 }
 
