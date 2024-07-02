@@ -1,9 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
+
 import App from './App';
+import Cadastro from './pages/Cadastro';
+import Salas from './salas';
+
 import reportWebVitals from './reportWebVitals';
 import { ConfigProvider } from 'antd';
+import { createBrowserRouter, RouterProvider, Route  } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />
+  },
+  {
+    path: '/register',
+    element: <Cadastro />
+  },
+  {
+    path: '/rooms',
+    element: <Salas />
+  }
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +36,7 @@ root.render(
         colorPrimary: '#730007'
       },
     }}>
-    <App />
+    <RouterProvider router={router}/>
     </ConfigProvider>
     
   </React.StrictMode>

@@ -15,6 +15,10 @@ function App() {
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
+
+    if (values.email.isNull && values.password.isNull) {
+      alert('null');
+    }
   };
 
   const styles = {
@@ -112,12 +116,12 @@ function App() {
             </a>
           </Form.Item>
           <Form.Item style={{ marginBottom: "0px" }}>
-            <Button block="true" style={{backgroundColor:'#730007', color:'white', border:'none'}} htmlType="submit">
+            <Button onSubmit={onFinish} block="true" style={{backgroundColor:'#730007', color:'white', border:'none'}} htmlType="submit">
               Log in
             </Button> 
             <div style={styles.footer}>
               <Text style={styles.text}>Não possui uma conta?</Text>{" "}
-              <Link style={{color:'#730007'}} href="">Cadastre-se agora</Link>
+              <Link style={{color:'#730007'}} href="http://localhost:3000/register">Cadastre-se agora</Link>
             </div>
           </Form.Item>
         </Form>
